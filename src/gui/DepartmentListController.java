@@ -1,6 +1,7 @@
 package gui;
 
 import application.Main;
+import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Utils;
 import javafx.collections.FXCollections;
@@ -26,7 +27,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DepartmentListController implements Initializable {
+public class DepartmentListController implements Initializable, DataChangeListener {
 
     @FXML
     private DepartmentService service;
@@ -94,6 +95,8 @@ public class DepartmentListController implements Initializable {
             DepartmentFormController controller = loader.getController();
             controller.setDepartment(obj);
             controller.setDepartmentService(new DepartmentService());
+            controller.subscribeDtaChangeListner(this);
+
             controller.updateFormData();
 
             Stage diaogStage = new Stage();
@@ -110,4 +113,8 @@ public class DepartmentListController implements Initializable {
 
     }
 
+    @Override
+    public void onDataChanged() {
+        updateTabeView();
+    }
 }
