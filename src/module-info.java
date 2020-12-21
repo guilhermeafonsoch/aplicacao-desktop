@@ -4,4 +4,7 @@ module Workshop {
 
     opens gui ;
     opens application;
+    opens model.services;
+    opens model.entites;
+
 }
