@@ -2,5 +2,6 @@ module Workshop {
     requires javafx.fxml;
     requires javafx.controls;
 
-    //opens ;
+    opens gui ;
+    opens application;
 }
