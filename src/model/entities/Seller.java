@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Seller implements Serializable {
     private Integer id;
-    private String name;
+    private String name = "";
     private String email;
     private Date birthDate;
     private Double baseSalary;
